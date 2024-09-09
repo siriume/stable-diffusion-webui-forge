@@ -346,7 +346,7 @@ def get_image_from_url(url):
 
 def url_to_torch(url, size=(384, 384)):
     img = get_image_from_url(url)
-    img = img.resize(size, Image.ANTIALIAS)
+    img = img.resize(size, Image.LANCZOS)
     img = torch.from_numpy(np.asarray(img)).float()
     img = img.permute(2, 0, 1)
     img.div_(255)
